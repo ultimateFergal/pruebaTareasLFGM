@@ -1,0 +1,83 @@
+
+<app-admin-menu></app-admin-menu>
+<div class="container">
+    <div class="row">
+      <div class="col-md-5">
+
+
+          <div class="panel panel-default">
+            <div class="panel-heading"> <h4>Administración de usuario</h4></div>
+            <div class="panel-body">
+
+                <img width="400" alt="Nodejs Logo" src="https://cdn-images-1.medium.com/max/365/1*d2zLEjERsrs1Rzk_95QU9A.png">
+
+
+                <!-- <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)"> -->
+                <form #userForm="ngForm" (submit)="addUser($event, userForm)">
+                    <!-- TO UPDATE -->
+                    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="userService.selectedUser.id">
+          
+                    <div class="form-group">
+                      <input 
+                        type="text"
+                        class="form-control"
+                        name="email"
+                        [(ngModel)]="email"
+                        placeholder="Agregue un email"
+                        >
+                    </div>
+                    <div class="form-group">
+                      <input 
+                        type="password"
+                        class="form-control"
+                        name="password"
+                        [(ngModel)]="password"
+                        placeholder="Agregue un password"
+                        >
+                    </div>
+          
+                    <div class="form-group">
+                      <button class="btn btn-primary" type="submit">
+                          <i class="fas fa-plus-circle"></i> {{ crearEditar }} usuario
+                      </button>
+                      <button class="btn btn-secondary" type="reset" (click)="resetForm(userForm)">
+                          <i class="fas fa-sync-alt"></i> Limpiar
+                      </button>
+                    </div>
+                  </form>
+            </div>
+          </div>
+            
+            
+      </div>
+
+
+      <div class="col-md-7 text-center">
+
+        <div class="panel panel-default">
+          <div class="panel-heading"> <h4>Lista de usuarios</h4></div>
+          <div class="panel-body">
+
+          <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+
+          <div class="row btn-info btn-lg">
+            <div class="col-md-2">ID</div>
+            <div class="col-md-5">EMAIL</div>
+            <div class="col-md-5">ADMINISTRAR</div>
+          </div>
+          <div *ngFor="let user of users" class="row">
+            <div class="col-md-2">{{ user.id }}</div>
+            <div class="col-md-5">{{ user.email }}</div>
+            <div class="col-md-5">
+              <button class="btn btn-warning btn-sm" title="Editar" (click)="editUser(user)"><i class="fa fa-edit"></i></button>
+              <button class="btn btn-danger btn-sm" title="Eliminar" (click)="deleteUser(user.id)"><i class="fa fa-trash"></i></button>
+            </div>
+          </div>
+
+        </div>
+
+        </div>
+      </div>
+
+    </div>
+</div>

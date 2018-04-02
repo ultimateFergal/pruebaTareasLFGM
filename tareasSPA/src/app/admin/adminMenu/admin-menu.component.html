@@ -1,0 +1,15 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+        <a class="navbar-brand">Tareas SPA - LUIS FERNANDO GALARCIO MARÍN</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="admin-menu"><a [routerLink]="['/admin/users']">Administrar Usuarios</a></li>
+            <li class="admin-menu"><a [routerLink]="['/admin/tasks']">Administrar Tareas</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+                <li class="admin-menu"><a>{{theUser}} Sesión iniciada</a></li>
+                <li class="admin-menu" role="button"><a (click)="logout()">Cerrar sesión</a></li>
+        </ul>
+    </div>
+</nav>

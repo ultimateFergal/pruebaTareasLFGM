@@ -1,0 +1,40 @@
+<div style="padding-left: 30%;padding-right:30%" class="text-center">
+  <div class="col-md-10 align-center">
+      <h1>Ingrese a su cuenta</h1>
+  </div>
+  <div class="row align-center">
+      <form>
+      <div class="form-group col-md-10">
+          <label for="email">Email address:</label>
+          <input type="text" placeholder="Ingrese un email" id="email" class="form-control"
+              [(ngModel)]="email" name="email" required #em="ngModel">
+          <div [hidden]="em.valid || em.pristine" class="alert callout">
+            Se require el email
+          </div>
+      </div>
+      <div class="form-group col-md-10">
+          <label for="email">Contraseña:</label>
+          <input type="password" placeholder="Ingrese la contraseña" id="password" class="form-control"
+              [(ngModel)]="password" name="password" required #pwd1="ngModel">
+          <div [hidden]="pwd1.valid || pwd1.pristine" class="alert callout">
+            Se require la contraseña
+          </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-10">
+          <div class="expanded button-group">
+            <a class="btn btn-success" (click)="login()">Ingresar</a>
+            <!-- <a class="button" (click)="signup()">Registrarse</a> -->
+          </div>
+        </div>
+        <div class="form-group col-md-10">
+          <p (click)="cancel()" class="text-center simlink">Volver al sitio principal</p>
+        </div>
+      </div>
+
+
+      </form>
+  </div>
+</div>
+
+
